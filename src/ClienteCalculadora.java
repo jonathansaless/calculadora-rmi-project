@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// 192.168.1.8
 public class ClienteCalculadora {
   private static Calculadora calc;
   private static JTextField resultField;
@@ -12,8 +13,16 @@ public class ClienteCalculadora {
   private static JTextField inputField2;
 
   public static void main(String[] args) {
+    if (args.length != 2) {
+      System.out.println("Uso: java ClienteCalculadora <ip_servidor> <porta>");
+      return;
+    }
+
+    String serverIP = args[0];
+    int serverPort = Integer.parseInt(args[1]);
+
     try {
-      Registry registry = LocateRegistry.getRegistry(null);
+      Registry registry = LocateRegistry.getRegistry(serverIP, serverPort);
       calc = (Calculadora) registry.lookup("calculadora");
     } catch (Exception e) {
       System.err.println("Ocorreu um erro ao obter o stub da calculadora: " + e.toString());
@@ -29,12 +38,12 @@ public class ClienteCalculadora {
     frame.setLayout(new BorderLayout());
 
     // Obtém as dimensões da tela do meu dispositivo
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    int screenWidth = (int) screenSize.getWidth();
-    int screenHeight = (int) screenSize.getHeight();
+    // Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    // int screenWidth = (int) screenSize.getWidth();
+    // int screenHeight = (int) screenSize.getHeight();
 
     // Define o tamanho da janela para ocupar a tela do dispositivo
-    frame.setSize(screenWidth, screenHeight);
+    frame.setSize(850, 350);
 
     resultField = new JTextField();
     resultField.setEditable(false);
@@ -118,27 +127,27 @@ public class ClienteCalculadora {
     absButton.addActionListener(new ButtonClickListener("valorAbsoluto"));
     buttonPanel.add(absButton);
 
-    JButton currencyButton = new JButton("Moeda (BR->USD)");
+    JButton currencyButton = new JButton("BR->USD");
     currencyButton.addActionListener(new ButtonClickListener("converterMoeda"));
     buttonPanel.add(currencyButton);
 
-    JButton timeButton = new JButton("Tempo (Min->Seg)");
+    JButton timeButton = new JButton("Min->Seg");
     timeButton.addActionListener(new ButtonClickListener("converterTempo"));
     buttonPanel.add(timeButton);
 
-    JButton lengthButton = new JButton("Comprimento (km->m)");
+    JButton lengthButton = new JButton("km->m");
     lengthButton.addActionListener(new ButtonClickListener("converterComprimento"));
     buttonPanel.add(lengthButton);
 
-    JButton weightButton = new JButton("Peso (g->kg)");
+    JButton weightButton = new JButton("g->kg");
     weightButton.addActionListener(new ButtonClickListener("converterPeso"));
     buttonPanel.add(weightButton);
 
-    JButton volumeButton = new JButton("Volume (l->ml)");
+    JButton volumeButton = new JButton("l->ml");
     volumeButton.addActionListener(new ButtonClickListener("converterVolume"));
     buttonPanel.add(volumeButton);
 
-    JButton temperatureButton = new JButton("Temperatura (ºC->ºF)");
+    JButton temperatureButton = new JButton("ºC->ºF");
     temperatureButton.addActionListener(new ButtonClickListener("converterTemperatura"));
     buttonPanel.add(temperatureButton);
 
@@ -158,15 +167,15 @@ public class ClienteCalculadora {
     minButton.addActionListener(new ButtonClickListener("calcularMenor"));
     buttonPanel.add(minButton);
 
-    JButton ceilButton = new JButton("ceil");
+    JButton ceilButton = new JButton("arredondar p/ cima");
     ceilButton.addActionListener(new ButtonClickListener("arredondarParaCima"));
     buttonPanel.add(ceilButton);
 
-    JButton floorButton = new JButton("floor");
+    JButton floorButton = new JButton("arredondar p/ baixo");
     floorButton.addActionListener(new ButtonClickListener("arredondarParaBaixo"));
     buttonPanel.add(floorButton);
 
-    JButton roundButton = new JButton("round");
+    JButton roundButton = new JButton("arredondar");
     roundButton.addActionListener(new ButtonClickListener("arredondar"));
     buttonPanel.add(roundButton);
 
