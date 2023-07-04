@@ -1,3 +1,4 @@
+
 // CÓDIGO CALCULADORA IMPL
 import java.rmi.RemoteException;
 
@@ -29,7 +30,7 @@ public class CalculadoraImpl implements Calculadora {
 
     @Override
     public Numero calcularRestoDivisao(Numero num1, Numero num2) throws RemoteException {
-        //double resto = num1.getValor() % num2.getValor();
+        // double resto = num1.getValor() % num2.getValor();
         System.out.println("Resto de divisão!");
         return new NumeroImpl(num1.getValor() % num2.getValor());
     }
@@ -230,4 +231,27 @@ public class CalculadoraImpl implements Calculadora {
         return new NumeroImpl(Math.round(num.getValor()));
     }
 
+    @Override
+    public Numero converterGrauParaRadiano(Numero grau) throws RemoteException {
+        System.out.println("Converter grau para radiano!");
+        return new NumeroImpl(Math.toRadians(grau.getValor()));
+    }
+
+    @Override
+    public Numero calcularLogaritmoNaBaseE(Numero num) throws RemoteException {
+        System.out.println("Logaritmo na base e!");
+        return new NumeroImpl(Math.log(num.getValor()));
+    }
+
+    @Override
+    public Numero calcularExponencial(Numero num) throws RemoteException {
+        System.out.println("Exponencial!");
+        return new NumeroImpl(Math.exp(num.getValor()));
+    }
+
+    @Override
+    public Numero calcularRaizCubica(Numero num) throws RemoteException {
+        System.out.println("Raiz cúbica!");
+        return new NumeroImpl(Math.cbrt(num.getValor()));
+    }
 }
