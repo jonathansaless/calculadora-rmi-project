@@ -38,14 +38,7 @@ public interface Calculadora extends Remote {
     public Numero converterMoeda(Numero valor, String moedaOrigem, String moedaDestino) throws RemoteException;
 
     public Numero converterTempo(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException;
-
-    public Numero converterComprimento(Numero valor, String unidadeOrigem, String unidadeDestino)
-            throws RemoteException;
-
-    public Numero converterPeso(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException;
-
-    public Numero converterVolume(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException;
-
+    
     public Numero converterTemperatura(Numero valor, String unidadeOrigem, String unidadeDestino)
             throws RemoteException;
 

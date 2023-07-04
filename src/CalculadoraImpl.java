@@ -128,42 +128,42 @@ public class CalculadoraImpl implements Calculadora {
         return new NumeroImpl(valorConvertido);
     }
 
-    @Override
-    public Numero converterComprimento(Numero valor, String unidadeOrigem, String unidadeDestino)
-            throws RemoteException {
+    // @Override
+    // public Numero converterComprimento(Numero valor, String unidadeOrigem, String unidadeDestino)
+    //         throws RemoteException {
 
-        double valorConvertido = 0;
-        if (unidadeOrigem.equals("metros") && unidadeDestino.equals("quilômetros")) {
-            valorConvertido = valor.getValor() / 1000; // Exemplo: converter metros para quilômetros
-        } else if (unidadeOrigem.equals("quilometros") && unidadeDestino.equals("metros")) {
-            valorConvertido = valor.getValor() * 1000; // Exemplo: converter quilômetros para metros
-        }
-        return new NumeroImpl(valorConvertido);
-    }
+    //     double valorConvertido = 0;
+    //     if (unidadeOrigem.equals("metros") && unidadeDestino.equals("quilômetros")) {
+    //         valorConvertido = valor.getValor() / 1000; // Exemplo: converter metros para quilômetros
+    //     } else if (unidadeOrigem.equals("quilometros") && unidadeDestino.equals("metros")) {
+    //         valorConvertido = valor.getValor() * 1000; // Exemplo: converter quilômetros para metros
+    //     }
+    //     return new NumeroImpl(valorConvertido);
+    // }
 
-    @Override
-    public Numero converterPeso(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException {
+    // @Override
+    // public Numero converterPeso(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException {
 
-        double valorConvertido = 0;
-        if (unidadeOrigem.equals("quilogramas") && unidadeDestino.equals("gramas")) {
-            valorConvertido = valor.getValor() * 1000; // Exemplo: converter quilogramas para gramas
-        } else if (unidadeOrigem.equals("gramas") && unidadeDestino.equals("quilogramas")) {
-            valorConvertido = valor.getValor() / 1000; // Exemplo: converter gramas para quilogramas
-        }
-        return new NumeroImpl(valorConvertido);
-    }
+    //     double valorConvertido = 0;
+    //     if (unidadeOrigem.equals("quilogramas") && unidadeDestino.equals("gramas")) {
+    //         valorConvertido = valor.getValor() * 1000; // Exemplo: converter quilogramas para gramas
+    //     } else if (unidadeOrigem.equals("gramas") && unidadeDestino.equals("quilogramas")) {
+    //         valorConvertido = valor.getValor() / 1000; // Exemplo: converter gramas para quilogramas
+    //     }
+    //     return new NumeroImpl(valorConvertido);
+    // }
 
-    @Override
-    public Numero converterVolume(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException {
+    // @Override
+    // public Numero converterVolume(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException {
 
-        double valorConvertido = 0;
-        if (unidadeOrigem.equals("litros") && unidadeDestino.equals("mililitros")) {
-            valorConvertido = valor.getValor() * 1000; // Exemplo: converter litros para mililitros
-        } else if (unidadeOrigem.equals("mililitros") && unidadeDestino.equals("litros")) {
-            valorConvertido = valor.getValor() / 1000; // Exemplo: converter mililitros para litros
-        }
-        return new NumeroImpl(valorConvertido);
-    }
+    //     double valorConvertido = 0;
+    //     if (unidadeOrigem.equals("litros") && unidadeDestino.equals("mililitros")) {
+    //         valorConvertido = valor.getValor() * 1000; // Exemplo: converter litros para mililitros
+    //     } else if (unidadeOrigem.equals("mililitros") && unidadeDestino.equals("litros")) {
+    //         valorConvertido = valor.getValor() / 1000; // Exemplo: converter mililitros para litros
+    //     }
+    //     return new NumeroImpl(valorConvertido);
+    // }
 
     @Override
     public Numero converterTemperatura(Numero valor, String unidadeOrigem, String unidadeDestino)

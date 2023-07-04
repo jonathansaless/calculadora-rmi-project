@@ -257,15 +257,6 @@ public class ClienteCalculadora {
           case "converterTempo":
             result = calc.converterTempo(num1, "minutos", "segundos");
             break;
-          case "converterComprimento":
-            result = calc.converterComprimento(num1, "quilometros", "metros");
-            break;
-          case "converterPeso":
-            result = calc.converterPeso(num1, "gramas", "quilogramas");
-            break;
-          case "converterVolume":
-            result = calc.converterVolume(num1, "litros", "mililitros");
-            break;
           case "converterTemperatura":
             result = calc.converterTemperatura(num1, "Celsius", "Fahrenheit");
             break;
