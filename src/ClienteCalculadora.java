@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 // 192.168.1.8
+// 10.0.2.15
 public class ClienteCalculadora {
   private static Calculadora calc;
   private static JTextField resultField;
@@ -87,6 +88,18 @@ public class ClienteCalculadora {
     powerButton.addActionListener(new ButtonClickListener("potencia"));
     buttonPanel.add(powerButton);
 
+    JButton percentageButton = new JButton("%");
+    percentageButton.addActionListener(new ButtonClickListener("calcularPorcentagem"));
+    buttonPanel.add(percentageButton);
+
+    JButton maxButton = new JButton("max");
+    maxButton.addActionListener(new ButtonClickListener("calcularMaior"));
+    buttonPanel.add(maxButton);
+
+    JButton minButton = new JButton("min");
+    minButton.addActionListener(new ButtonClickListener("calcularMenor"));
+    buttonPanel.add(minButton);
+
     JButton squareRootButton = new JButton("√");
     squareRootButton.addActionListener(new ButtonClickListener("raizQuadrada"));
     buttonPanel.add(squareRootButton);
@@ -155,23 +168,11 @@ public class ClienteCalculadora {
     factorialButton.addActionListener(new ButtonClickListener("calcularFatorial"));
     buttonPanel.add(factorialButton);
 
-    JButton percentageButton = new JButton("%");
-    percentageButton.addActionListener(new ButtonClickListener("calcularPorcentagem"));
-    buttonPanel.add(percentageButton);
-
-    JButton maxButton = new JButton("max");
-    maxButton.addActionListener(new ButtonClickListener("calcularMaior"));
-    buttonPanel.add(maxButton);
-
-    JButton minButton = new JButton("min");
-    minButton.addActionListener(new ButtonClickListener("calcularMenor"));
-    buttonPanel.add(minButton);
-
-    JButton ceilButton = new JButton("arredondar p/ cima");
+    JButton ceilButton = new JButton("ceil");
     ceilButton.addActionListener(new ButtonClickListener("arredondarParaCima"));
     buttonPanel.add(ceilButton);
 
-    JButton floorButton = new JButton("arredondar p/ baixo");
+    JButton floorButton = new JButton("floor");
     floorButton.addActionListener(new ButtonClickListener("arredondarParaBaixo"));
     buttonPanel.add(floorButton);
 

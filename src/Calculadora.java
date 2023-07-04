@@ -17,8 +17,6 @@ public interface Calculadora extends Remote {
 
     public Numero calcularRaizQuadrada(Numero num) throws RemoteException;
 
-    public Numero calcularRaizNesima(Numero num, Numero n) throws RemoteException;
-
     public Numero calcularSeno(Numero angulo) throws RemoteException;
 
     public Numero calcularCosseno(Numero angulo) throws RemoteException;

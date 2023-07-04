@@ -6,91 +6,101 @@ public class CalculadoraImpl implements Calculadora {
 
     @Override
     public Numero somar(Numero num1, Numero num2) throws RemoteException {
+        System.out.println("Soma!");
         return new NumeroImpl(num1.getValor() + num2.getValor());
     }
 
     @Override
     public Numero subtrair(Numero num1, Numero num2) throws RemoteException {
+        System.out.println("Subtração!");
         return new NumeroImpl(num1.getValor() - num2.getValor());
     }
 
     @Override
     public Numero multiplicar(Numero num1, Numero num2) throws RemoteException {
+        System.out.println("Multiplicação!");
         return new NumeroImpl(num1.getValor() * num2.getValor());
     }
 
     @Override
     public Numero dividir(Numero num1, Numero num2) throws RemoteException {
+        System.out.println("Divisão!");
         return new NumeroImpl(num1.getValor() / num2.getValor());
     }
 
     @Override
     public Numero calcularRestoDivisao(Numero num1, Numero num2) throws RemoteException {
-        double resto = num1.getValor() % num2.getValor();
-        return new NumeroImpl(resto);
+        //double resto = num1.getValor() % num2.getValor();
+        System.out.println("Resto de divisão!");
+        return new NumeroImpl(num1.getValor() % num2.getValor());
     }
 
     @Override
     public Numero calcularPotencia(Numero base, Numero expoente) throws RemoteException {
+        System.out.println("Potência!");
         return new NumeroImpl(Math.pow(base.getValor(), expoente.getValor()));
     }
 
     @Override
     public Numero calcularRaizQuadrada(Numero num) throws RemoteException {
+        System.out.println("Raiz quadrada!");
         return new NumeroImpl(Math.sqrt(num.getValor()));
     }
 
     @Override
-    public Numero calcularRaizNesima(Numero num, Numero n) throws RemoteException {
-        double resultado = Math.pow(num.getValor(), 1 / n.getValor());
-        return new NumeroImpl(resultado);
-    }
-
-    @Override
     public Numero calcularSeno(Numero angulo) throws RemoteException {
+        System.out.println("Seno!");
         return new NumeroImpl(Math.sin(angulo.getValor()));
     }
 
     @Override
     public Numero calcularCosseno(Numero angulo) throws RemoteException {
+        System.out.println("Cosseno!");
         return new NumeroImpl(Math.cos(angulo.getValor()));
     }
 
     @Override
     public Numero calcularTangente(Numero angulo) throws RemoteException {
+        System.out.println("Tangente!");
         return new NumeroImpl(Math.tan(angulo.getValor()));
     }
 
     @Override
     public Numero calcularCotangente(Numero angulo) throws RemoteException {
-        double cotangente = 1 / Math.tan(angulo.getValor());
-        return new NumeroImpl(cotangente);
+        System.out.println("Cotangente!");
+        // double cotangente = 1 / Math.tan(angulo.getValor());
+        return new NumeroImpl(1 / Math.tan(angulo.getValor()));
     }
 
     @Override
     public Numero calcularSecante(Numero angulo) throws RemoteException {
-        double secante = 1 / Math.cos(angulo.getValor());
-        return new NumeroImpl(secante);
+        System.out.println("Secante!");
+        // double secante = 1 / Math.cos(angulo.getValor());
+        return new NumeroImpl(1 / Math.cos(angulo.getValor()));
     }
 
     @Override
     public Numero calcularCossecante(Numero angulo) throws RemoteException {
-        double cossecante = 1 / Math.sin(angulo.getValor());
-        return new NumeroImpl(cossecante);
+        System.out.println("Cossecante!");
+        // double cossecante = 1 / Math.sin(angulo.getValor());
+        return new NumeroImpl(1 / Math.sin(angulo.getValor()));
     }
 
     @Override
     public Numero calcularLogaritmo(Numero num) throws RemoteException {
+        System.out.println("Logaritmo!");
         return new NumeroImpl(Math.log(num.getValor()));
     }
 
     @Override
     public Numero calcularLogaritmoBase10(Numero num) throws RemoteException {
+        System.out.println("Logaritmo na base 10!");
         return new NumeroImpl(Math.log10(num.getValor()));
     }
 
     @Override
     public Numero calcularValorAbsoluto(Numero num) throws RemoteException {
+        System.out.println("Valor absoluto!");
         return new NumeroImpl(Math.abs(num.getValor()));
     }
 
@@ -175,43 +185,50 @@ public class CalculadoraImpl implements Calculadora {
         for (int i = 2; i <= valor; i++) {
             resultado *= i;
         }
+        System.out.println("Fatorial!");
         return new NumeroImpl(resultado);
     }
 
     @Override
     public Numero calcularPorcentagem(Numero num, Numero porcentagem) throws RemoteException {
-        double resultado = num.getValor() * (porcentagem.getValor() / 100);
-        return new NumeroImpl(resultado);
+        // double resultado = num.getValor() * (porcentagem.getValor() / 100);
+        System.out.println("Porcentagem!");
+        return new NumeroImpl(num.getValor() * (porcentagem.getValor() / 100));
     }
 
     @Override
     public Numero calcularMaior(Numero num1, Numero num2) throws RemoteException {
-        double maior = Math.max(num1.getValor(), num2.getValor());
-        return new NumeroImpl(maior);
+        // double maior = Math.max(num1.getValor(), num2.getValor());
+        System.out.println("Valor máximo!");
+        return new NumeroImpl(Math.max(num1.getValor(), num2.getValor()));
     }
 
     @Override
     public Numero calcularMenor(Numero num1, Numero num2) throws RemoteException {
-        double menor = Math.min(num1.getValor(), num2.getValor());
-        return new NumeroImpl(menor);
+        // double menor = Math.min(num1.getValor(), num2.getValor());
+        System.out.println("Valor mínimo!");
+        return new NumeroImpl(Math.min(num1.getValor(), num2.getValor()));
     }
 
     @Override
     public Numero arredondarParaCima(Numero num) throws RemoteException {
-        double arredondado = Math.ceil(num.getValor());
-        return new NumeroImpl(arredondado);
+        // double arredondado = Math.ceil(num.getValor());
+        System.out.println("Arredondar pra cima!");
+        return new NumeroImpl(Math.ceil(num.getValor()));
     }
 
     @Override
     public Numero arredondarParaBaixo(Numero num) throws RemoteException {
-        double arredondado = Math.floor(num.getValor());
-        return new NumeroImpl(arredondado);
+        // double arredondado = Math.floor(num.getValor());
+        System.out.println("Arredondar pra baixo!");
+        return new NumeroImpl(Math.floor(num.getValor()));
     }
 
     @Override
     public Numero arredondar(Numero num) throws RemoteException {
-        double arredondado = Math.round(num.getValor());
-        return new NumeroImpl(arredondado);
+        // double arredondado = Math.round(num.getValor());
+        System.out.println("Arredondar!");
+        return new NumeroImpl(Math.round(num.getValor()));
     }
 
 }
