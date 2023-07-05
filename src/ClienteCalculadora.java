@@ -183,6 +183,22 @@ public class ClienteCalculadora {
     fahrenheitParaCelsiusButton.addActionListener(new ButtonClickListener("fahrenheitParaCelsius"));
     buttonPanel.add(fahrenheitParaCelsiusButton);
 
+    JButton quilometrosParaMilhasButton = new JButton("km->mi");
+    quilometrosParaMilhasButton.addActionListener(new ButtonClickListener("quilometrosParaMilhas"));
+    buttonPanel.add(quilometrosParaMilhasButton);
+
+    JButton milhasParaQuilometrosButton = new JButton("mi->km");
+    milhasParaQuilometrosButton.addActionListener(new ButtonClickListener("milhasParaQuilometros"));
+    buttonPanel.add(milhasParaQuilometrosButton);
+
+    JButton quilogramasParaLibrasButton = new JButton("kg->lb");
+    quilogramasParaLibrasButton.addActionListener(new ButtonClickListener("quilogramasParaLibras"));
+    buttonPanel.add(quilogramasParaLibrasButton);
+
+    JButton librasParaQuilogramasButton = new JButton("lb->kg");
+    librasParaQuilogramasButton.addActionListener(new ButtonClickListener("librasParaQuilogramas"));
+    buttonPanel.add(librasParaQuilogramasButton);
+
     frame.add(buttonPanel, BorderLayout.SOUTH);
     frame.setVisible(true);
   }
@@ -302,6 +318,22 @@ public class ClienteCalculadora {
           case "fahrenheitParaCelsius":
             result = calc.fahreinheitParaCelsius(num1);
             break;
+          case "quilometrosParaMilhas":
+            result = calc.quilometrosParaMilhas(num1);
+            break;
+
+          case "milhasParaQuilometros":
+            result = calc.milhasParaQuilometros(num1);
+            break;
+
+          case "quilogramasParaLibras":
+            result = calc.quilogramasParaLibras(num1);
+            break;
+
+          case "librasParaQuilogramas":
+            result = calc.librasParaQuilogramas(num1);
+            break;
+
         }
 
         if (result != null) {
