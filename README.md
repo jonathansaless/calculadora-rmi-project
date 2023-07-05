@@ -11,7 +11,7 @@ javac *.java
 rmic CalculadoraImpl
 ```
 ```
-rmiregistry 1099
+rmiregistry PORTA
 ```
 ### Terminal 2
 ```
