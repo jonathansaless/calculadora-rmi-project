@@ -30,7 +30,6 @@ public class CalculadoraImpl implements Calculadora {
 
     @Override
     public Numero calcularRestoDivisao(Numero num1, Numero num2) throws RemoteException {
-        // double resto = num1.getValor() % num2.getValor();
         System.out.println("Resto de divisão!");
         return new NumeroImpl(num1.getValor() % num2.getValor());
     }
@@ -45,6 +44,12 @@ public class CalculadoraImpl implements Calculadora {
     public Numero calcularRaizQuadrada(Numero num) throws RemoteException {
         System.out.println("Raiz quadrada!");
         return new NumeroImpl(Math.sqrt(num.getValor()));
+    }
+
+    @Override
+    public Numero calcularRaizCubica(Numero num) throws RemoteException {
+        System.out.println("Raiz cúbica!");
+        return new NumeroImpl(Math.cbrt(num.getValor()));
     }
 
     @Override
@@ -68,21 +73,18 @@ public class CalculadoraImpl implements Calculadora {
     @Override
     public Numero calcularCotangente(Numero angulo) throws RemoteException {
         System.out.println("Cotangente!");
-        // double cotangente = 1 / Math.tan(angulo.getValor());
         return new NumeroImpl(1 / Math.tan(angulo.getValor()));
     }
 
     @Override
     public Numero calcularSecante(Numero angulo) throws RemoteException {
         System.out.println("Secante!");
-        // double secante = 1 / Math.cos(angulo.getValor());
         return new NumeroImpl(1 / Math.cos(angulo.getValor()));
     }
 
     @Override
     public Numero calcularCossecante(Numero angulo) throws RemoteException {
         System.out.println("Cossecante!");
-        // double cossecante = 1 / Math.sin(angulo.getValor());
         return new NumeroImpl(1 / Math.sin(angulo.getValor()));
     }
 
@@ -95,45 +97,20 @@ public class CalculadoraImpl implements Calculadora {
     @Override
     public Numero calcularLogaritmoBase10(Numero num) throws RemoteException {
         System.out.println("Logaritmo na base 10!");
-        return new NumeroImpl(Math.log10(num.getValor()));
+        return // double cotangente = 1 / Math.tan(angulo.getValor());
+        new NumeroImpl(Math.log10(num.getValor()));
+    }
+
+    @Override
+    public Numero calcularExponencial(Numero num) throws RemoteException {
+        System.out.println("Exponencial!");
+        return new NumeroImpl(Math.exp(num.getValor()));
     }
 
     @Override
     public Numero calcularValorAbsoluto(Numero num) throws RemoteException {
         System.out.println("Valor absoluto!");
         return new NumeroImpl(Math.abs(num.getValor()));
-    }
-
-    @Override
-    public Numero realParaDolar(Numero valor) throws RemoteException {
-        return new NumeroImpl(valor.getValor() / 4.84);
-    }
-
-    @Override
-    public Numero dolarParaReal(Numero valor) throws RemoteException {
-        return new NumeroImpl(valor.getValor() * 4.84);
-    }
-
-    @Override
-    public Numero segParaMinuto(Numero valor) throws RemoteException {
-        return new NumeroImpl(valor.getValor() / 60);
-    }
-
-    @Override
-    public Numero minutoParaSeg(Numero valor) throws RemoteException {
-        return new NumeroImpl(valor.getValor() * 60);
-    }
-
-    @Override
-    public Numero celsiusParaFahrenheit(Numero valor)
-            throws RemoteException {
-        return new NumeroImpl((valor.getValor() * 9 / 5) + 32);
-    }
-
-    @Override
-    public Numero fahreinheitParaCelsius(Numero valor)
-            throws RemoteException {
-        return new NumeroImpl((valor.getValor() - 32) * 5 / 9);
     }
 
     @Override
@@ -149,42 +126,36 @@ public class CalculadoraImpl implements Calculadora {
 
     @Override
     public Numero calcularPorcentagem(Numero num, Numero porcentagem) throws RemoteException {
-        // double resultado = num.getValor() * (porcentagem.getValor() / 100);
         System.out.println("Porcentagem!");
         return new NumeroImpl(num.getValor() * (porcentagem.getValor() / 100));
     }
 
     @Override
     public Numero calcularMaior(Numero num1, Numero num2) throws RemoteException {
-        // double maior = Math.max(num1.getValor(), num2.getValor());
         System.out.println("Valor máximo!");
         return new NumeroImpl(Math.max(num1.getValor(), num2.getValor()));
     }
 
     @Override
     public Numero calcularMenor(Numero num1, Numero num2) throws RemoteException {
-        // double menor = Math.min(num1.getValor(), num2.getValor());
         System.out.println("Valor mínimo!");
         return new NumeroImpl(Math.min(num1.getValor(), num2.getValor()));
     }
 
     @Override
     public Numero arredondarParaCima(Numero num) throws RemoteException {
-        // double arredondado = Math.ceil(num.getValor());
         System.out.println("Arredondar pra cima!");
         return new NumeroImpl(Math.ceil(num.getValor()));
     }
 
     @Override
     public Numero arredondarParaBaixo(Numero num) throws RemoteException {
-        // double arredondado = Math.floor(num.getValor());
         System.out.println("Arredondar pra baixo!");
         return new NumeroImpl(Math.floor(num.getValor()));
     }
 
     @Override
     public Numero arredondar(Numero num) throws RemoteException {
-        // double arredondado = Math.round(num.getValor());
         System.out.println("Arredondar!");
         return new NumeroImpl(Math.round(num.getValor()));
     }
@@ -196,27 +167,41 @@ public class CalculadoraImpl implements Calculadora {
     }
 
     @Override
-    public Numero calcularExponencial(Numero num) throws RemoteException {
-        System.out.println("Exponencial!");
-        return new NumeroImpl(Math.exp(num.getValor()));
+    public Numero realParaDolar(Numero valor) throws RemoteException {
+        System.out.println("Real p/ Dólar!");
+        return new NumeroImpl(valor.getValor() / 4.84);
     }
 
     @Override
-    public Numero calcularRaizCubica(Numero num) throws RemoteException {
-        System.out.println("Raiz cúbica!");
-        return new NumeroImpl(Math.cbrt(num.getValor()));
+    public Numero dolarParaReal(Numero valor) throws RemoteException {
+        System.out.println("Dólar p/ Real!");
+        return new NumeroImpl(valor.getValor() * 4.84);
     }
 
     @Override
-    public Numero converterTempo(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'converterTempo'");
+    public Numero segParaMinuto(Numero valor) throws RemoteException {
+        System.out.println("Segundo p/ minuto!");
+        return new NumeroImpl(valor.getValor() / 60);
     }
 
     @Override
-    public Numero converterTemperatura(Numero valor, String unidadeOrigem, String unidadeDestino)
+    public Numero minutoParaSeg(Numero valor) throws RemoteException {
+        System.out.println("Minuto p/ segundos!");
+        return new NumeroImpl(valor.getValor() * 60);
+    }
+
+    @Override
+    public Numero celsiusParaFahrenheit(Numero valor)
             throws RemoteException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'converterTemperatura'");
+        System.out.println("Celsius p/ Fahrenheit!");
+        return new NumeroImpl((valor.getValor() * 9 / 5) + 32);
     }
+
+    @Override
+    public Numero fahreinheitParaCelsius(Numero valor)
+            throws RemoteException {
+        System.out.println("Fahrenheit p/ Celsius!");
+        return new NumeroImpl((valor.getValor() - 32) * 5 / 9);
+    }
+
 }

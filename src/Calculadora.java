@@ -49,11 +49,6 @@ public interface Calculadora extends Remote {
     public Numero fahreinheitParaCelsius(Numero valor)
             throws RemoteException;
 
-    public Numero converterTempo(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException;
-
-    public Numero converterTemperatura(Numero valor, String unidadeOrigem, String unidadeDestino)
-            throws RemoteException;
-
     public Numero calcularFatorial(Numero num) throws RemoteException;
 
     public Numero calcularPorcentagem(Numero num, Numero porcentagem) throws RemoteException;
