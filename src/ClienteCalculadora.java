@@ -50,7 +50,7 @@ public class ClienteCalculadora {
     inputPanel.add(inputField1);
 
     JLabel inputLabel2 = new JLabel("y:");
-    inputPanel.add(inputLabel2, BorderLayout.LINE_END);
+    inputPanel.add(inputLabel2);
 
     inputField2 = new JTextField();
     inputPanel.add(inputField2);
