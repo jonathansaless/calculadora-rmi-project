@@ -23,5 +23,5 @@ java ServidorCalculadora
 javac *.java
 ```
 ```
-java ClienteCalculadora
+java ClienteCalculadora IP PORTA
 ```

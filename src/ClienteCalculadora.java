@@ -5,8 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-// 192.168.1.8
-// 10.0.2.15
 public class ClienteCalculadora {
   private static Calculadora calc;
   private static JTextField resultField;
@@ -37,13 +35,6 @@ public class ClienteCalculadora {
     JFrame frame = new JFrame("Calculadora");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setLayout(new BorderLayout());
-
-    // Obtém as dimensões da tela do meu dispositivo
-    // Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    // int screenWidth = (int) screenSize.getWidth();
-    // int screenHeight = (int) screenSize.getHeight();
-
-    // Define o tamanho da janela para ocupar a tela do dispositivo
     frame.setSize(850, 350);
 
     resultField = new JTextField();
@@ -52,13 +43,13 @@ public class ClienteCalculadora {
 
     JPanel inputPanel = new JPanel(new GridLayout(2, 2));
 
-    JLabel inputLabel1 = new JLabel("Valor 1:");
+    JLabel inputLabel1 = new JLabel("x:");
     inputPanel.add(inputLabel1);
 
     inputField1 = new JTextField();
     inputPanel.add(inputField1);
 
-    JLabel inputLabel2 = new JLabel("Valor 2:");
+    JLabel inputLabel2 = new JLabel("y:");
     inputPanel.add(inputLabel2);
 
     inputField2 = new JTextField();
@@ -104,6 +95,11 @@ public class ClienteCalculadora {
     squareRootButton.addActionListener(new ButtonClickListener("raizQuadrada"));
     buttonPanel.add(squareRootButton);
 
+    JButton calcularRaizCubicaButton = new JButton("³√");
+    calcularRaizCubicaButton.addActionListener(new ButtonClickListener("calcularRaizCubica"));
+    buttonPanel.add(calcularRaizCubicaButton);
+
+
     JButton sineButton = new JButton("sin");
     sineButton.addActionListener(new ButtonClickListener("seno"));
     buttonPanel.add(sineButton);
@@ -128,7 +124,7 @@ public class ClienteCalculadora {
     cosecantButton.addActionListener(new ButtonClickListener("cossecante"));
     buttonPanel.add(cosecantButton);
 
-    JButton logButton = new JButton("log");
+    JButton logButton = new JButton("ln");
     logButton.addActionListener(new ButtonClickListener("logaritmo"));
     buttonPanel.add(logButton);
 
@@ -139,30 +135,6 @@ public class ClienteCalculadora {
     JButton absButton = new JButton("|x|");
     absButton.addActionListener(new ButtonClickListener("valorAbsoluto"));
     buttonPanel.add(absButton);
-
-    JButton currencyButton = new JButton("BR->USD");
-    currencyButton.addActionListener(new ButtonClickListener("converterMoeda"));
-    buttonPanel.add(currencyButton);
-
-    JButton timeButton = new JButton("Min->Seg");
-    timeButton.addActionListener(new ButtonClickListener("converterTempo"));
-    buttonPanel.add(timeButton);
-
-    JButton lengthButton = new JButton("km->m");
-    lengthButton.addActionListener(new ButtonClickListener("converterComprimento"));
-    buttonPanel.add(lengthButton);
-
-    JButton weightButton = new JButton("g->kg");
-    weightButton.addActionListener(new ButtonClickListener("converterPeso"));
-    buttonPanel.add(weightButton);
-
-    JButton volumeButton = new JButton("l->ml");
-    volumeButton.addActionListener(new ButtonClickListener("converterVolume"));
-    buttonPanel.add(volumeButton);
-
-    JButton temperatureButton = new JButton("ºC->ºF");
-    temperatureButton.addActionListener(new ButtonClickListener("converterTemperatura"));
-    buttonPanel.add(temperatureButton);
 
     JButton factorialButton = new JButton("!");
     factorialButton.addActionListener(new ButtonClickListener("calcularFatorial"));
@@ -179,6 +151,38 @@ public class ClienteCalculadora {
     JButton roundButton = new JButton("arredondar");
     roundButton.addActionListener(new ButtonClickListener("arredondar"));
     buttonPanel.add(roundButton);
+
+    JButton converterGrauParaRadianoButton = new JButton("°->rad");
+    converterGrauParaRadianoButton.addActionListener(new ButtonClickListener("converterGrauParaRadiano"));
+    buttonPanel.add(converterGrauParaRadianoButton);
+
+    JButton calcularExponencialButton = new JButton("e^x");
+    calcularExponencialButton.addActionListener(new ButtonClickListener("calcularExponencial"));
+    buttonPanel.add(calcularExponencialButton);
+
+    JButton realParaDolarButton = new JButton("R$->USD");
+    realParaDolarButton.addActionListener(new ButtonClickListener("realParaDolar"));
+    buttonPanel.add(realParaDolarButton);
+
+    JButton dolarParaRealButton = new JButton("USD->R$");
+    dolarParaRealButton.addActionListener(new ButtonClickListener("dolarParaReal"));
+    buttonPanel.add(dolarParaRealButton);
+
+    JButton segParaMinutoButton = new JButton("Seg->Min");
+    segParaMinutoButton.addActionListener(new ButtonClickListener("segParaMinuto"));
+    buttonPanel.add(segParaMinutoButton);
+
+    JButton minutoParaSegButton = new JButton("Min->Seg");
+    minutoParaSegButton.addActionListener(new ButtonClickListener("minutoParaSeg"));
+    buttonPanel.add(minutoParaSegButton);
+
+    JButton celsiusParaFahrenheitButton = new JButton("ºC->ºF");
+    celsiusParaFahrenheitButton.addActionListener(new ButtonClickListener("celsiusParaFahrenheit"));
+    buttonPanel.add(celsiusParaFahrenheitButton);
+
+    JButton fahrenheitParaCelsiusButton = new JButton("ºF->ºC");
+    fahrenheitParaCelsiusButton.addActionListener(new ButtonClickListener("fahrenheitParaCelsius"));
+    buttonPanel.add(fahrenheitParaCelsiusButton);
 
     frame.add(buttonPanel, BorderLayout.SOUTH);
     frame.setVisible(true);
@@ -252,7 +256,7 @@ public class ClienteCalculadora {
             result = calc.calcularValorAbsoluto(num1);
             break;
           case "converterMoeda":
-            result = calc.converterMoeda(num1, "BRL", "USD");
+            result = calc.dolarParaReal(num1);
             break;
           case "converterTempo":
             result = calc.converterTempo(num1, "minutos", "segundos");
@@ -281,15 +285,40 @@ public class ClienteCalculadora {
           case "arredondar":
             result = calc.arredondar(num1);
             break;
+          case "converterGrauParaRadiano":
+            result = calc.converterGrauParaRadiano(num1);
+            break;
+          case "calcularExponencial":
+            result = calc.calcularExponencial(num1);
+            break;
+          case "calcularRaizCubica":
+            result = calc.calcularRaizCubica(num1);
+            break;
+          case "realParaDolar":
+            result = calc.realParaDolar(num1);
+            break;
+          case "dolarParaReal":
+            result = calc.dolarParaReal(num1);
+            break;
+          case "segParaMinuto":
+            result = calc.converterTempo(num1, "segundos", "minutos");
+            break;
+          case "minutoParaSeg":
+            result = calc.converterTempo(num1, "minutos", "segundos");
+            break;
+          case "celsiusParaFahrenheit":
+            result = calc.converterTemperatura(num1, "Celsius", "Fahrenheit");
+            break;
+          case "fahrenheitParaCelsius":
+            result = calc.converterTemperatura(num1, "Fahrenheit", "Celsius");
+            break;
         }
 
         if (result != null) {
-          resultField.setText("Resultado: " + result.getValor());
-        } else {
-          resultField.setText("Ocorreu um erro ao calcular.");
+          resultField.setText(Double.toString(result.getValor()));
         }
       } catch (Exception ex) {
-        resultField.setText("Ocorreu um erro ao calcular.");
+        JOptionPane.showMessageDialog(null, "Ocorreu um erro ao realizar a operação: " + ex.getMessage());
       }
     }
   }

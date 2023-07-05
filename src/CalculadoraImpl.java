@@ -105,77 +105,35 @@ public class CalculadoraImpl implements Calculadora {
     }
 
     @Override
-    public Numero converterMoeda(Numero valor, String moedaOrigem, String moedaDestino) throws RemoteException {
-
-        double valorConvertido = 0;
-        if (moedaOrigem.equals("USD") && moedaDestino.equals("BRL")) {
-            valorConvertido = valor.getValor() * 5.5; // Exemplo: 1 dólar para real
-        } else if (moedaOrigem.equals("BRL") && moedaDestino.equals("USD")) {
-            valorConvertido = valor.getValor() / 5.5; // Exemplo: 1 real para dólar
-        }
-        return new NumeroImpl(valorConvertido);
+    public Numero realParaDolar(Numero valor) throws RemoteException {
+        return new NumeroImpl(valor.getValor() / 4.84);
     }
 
     @Override
-    public Numero converterTempo(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException {
-
-        double valorConvertido = 0;
-        if (unidadeOrigem.equals("segundos") && unidadeDestino.equals("minutos")) {
-            valorConvertido = valor.getValor() / 60; // Exemplo: converter segundos para minutos
-        } else if (unidadeOrigem.equals("minutos") && unidadeDestino.equals("segundos")) {
-            valorConvertido = valor.getValor() * 60; // Exemplo: converter minutos para segundos
-        }
-        return new NumeroImpl(valorConvertido);
+    public Numero dolarParaReal(Numero valor) throws RemoteException {
+        return new NumeroImpl(valor.getValor() * 4.84);
     }
 
-    // @Override
-    // public Numero converterComprimento(Numero valor, String unidadeOrigem, String unidadeDestino)
-    //         throws RemoteException {
-
-    //     double valorConvertido = 0;
-    //     if (unidadeOrigem.equals("metros") && unidadeDestino.equals("quilômetros")) {
-    //         valorConvertido = valor.getValor() / 1000; // Exemplo: converter metros para quilômetros
-    //     } else if (unidadeOrigem.equals("quilometros") && unidadeDestino.equals("metros")) {
-    //         valorConvertido = valor.getValor() * 1000; // Exemplo: converter quilômetros para metros
-    //     }
-    //     return new NumeroImpl(valorConvertido);
-    // }
-
-    // @Override
-    // public Numero converterPeso(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException {
-
-    //     double valorConvertido = 0;
-    //     if (unidadeOrigem.equals("quilogramas") && unidadeDestino.equals("gramas")) {
-    //         valorConvertido = valor.getValor() * 1000; // Exemplo: converter quilogramas para gramas
-    //     } else if (unidadeOrigem.equals("gramas") && unidadeDestino.equals("quilogramas")) {
-    //         valorConvertido = valor.getValor() / 1000; // Exemplo: converter gramas para quilogramas
-    //     }
-    //     return new NumeroImpl(valorConvertido);
-    // }
-
-    // @Override
-    // public Numero converterVolume(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException {
-
-    //     double valorConvertido = 0;
-    //     if (unidadeOrigem.equals("litros") && unidadeDestino.equals("mililitros")) {
-    //         valorConvertido = valor.getValor() * 1000; // Exemplo: converter litros para mililitros
-    //     } else if (unidadeOrigem.equals("mililitros") && unidadeDestino.equals("litros")) {
-    //         valorConvertido = valor.getValor() / 1000; // Exemplo: converter mililitros para litros
-    //     }
-    //     return new NumeroImpl(valorConvertido);
-    // }
+    @Override
+    public Numero segParaMinuto(Numero valor) throws RemoteException {
+        return new NumeroImpl(valor.getValor() / 60);
+    }
 
     @Override
-    public Numero converterTemperatura(Numero valor, String unidadeOrigem, String unidadeDestino)
+    public Numero minutoParaSeg(Numero valor) throws RemoteException {
+        return new NumeroImpl(valor.getValor() * 60);
+    }
+
+    @Override
+    public Numero celsiusParaFahrenheit(Numero valor)
             throws RemoteException {
+        return new NumeroImpl((valor.getValor() * 9 / 5) + 32);
+    }
 
-        double valorConvertido = 0;
-        if (unidadeOrigem.equals("Celsius") && unidadeDestino.equals("Fahrenheit")) {
-            valorConvertido = (valor.getValor() * 9 / 5) + 32; // Exemplo: converter Celsius para Fahrenheit
-        } else if (unidadeOrigem.equals("Fahrenheit") && unidadeDestino.equals("Celsius")) {
-            valorConvertido = (valor.getValor() - 32) * 5 / 9; // Exemplo: converter Fahrenheit para Celsius
-        }
-        return new NumeroImpl(valorConvertido);
+    @Override
+    public Numero fahreinheitParaCelsius(Numero valor)
+            throws RemoteException {
+        return new NumeroImpl((valor.getValor() - 32) * 5 / 9);
     }
 
     @Override
@@ -238,12 +196,6 @@ public class CalculadoraImpl implements Calculadora {
     }
 
     @Override
-    public Numero calcularLogaritmoNaBaseE(Numero num) throws RemoteException {
-        System.out.println("Logaritmo na base e!");
-        return new NumeroImpl(Math.log(num.getValor()));
-    }
-
-    @Override
     public Numero calcularExponencial(Numero num) throws RemoteException {
         System.out.println("Exponencial!");
         return new NumeroImpl(Math.exp(num.getValor()));
@@ -253,5 +205,18 @@ public class CalculadoraImpl implements Calculadora {
     public Numero calcularRaizCubica(Numero num) throws RemoteException {
         System.out.println("Raiz cúbica!");
         return new NumeroImpl(Math.cbrt(num.getValor()));
+    }
+
+    @Override
+    public Numero converterTempo(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'converterTempo'");
+    }
+
+    @Override
+    public Numero converterTemperatura(Numero valor, String unidadeOrigem, String unidadeDestino)
+            throws RemoteException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'converterTemperatura'");
     }
 }

@@ -35,10 +35,22 @@ public interface Calculadora extends Remote {
 
     public Numero calcularValorAbsoluto(Numero num) throws RemoteException;
 
-    public Numero converterMoeda(Numero valor, String moedaOrigem, String moedaDestino) throws RemoteException;
+    public Numero realParaDolar(Numero valor) throws RemoteException;
+
+    public Numero dolarParaReal(Numero valor) throws RemoteException;
+
+    public Numero segParaMinuto(Numero valor) throws RemoteException;
+
+    public Numero minutoParaSeg(Numero valor) throws RemoteException;
+
+    public Numero celsiusParaFahrenheit(Numero valor)
+            throws RemoteException;
+
+    public Numero fahreinheitParaCelsius(Numero valor)
+            throws RemoteException;
 
     public Numero converterTempo(Numero valor, String unidadeOrigem, String unidadeDestino) throws RemoteException;
-    
+
     public Numero converterTemperatura(Numero valor, String unidadeOrigem, String unidadeDestino)
             throws RemoteException;
 
@@ -57,8 +69,6 @@ public interface Calculadora extends Remote {
     public Numero arredondar(Numero num) throws RemoteException;
 
     public Numero converterGrauParaRadiano(Numero grau) throws RemoteException;
-
-    public Numero calcularLogaritmoNaBaseE(Numero num) throws RemoteException;
 
     public Numero calcularExponencial(Numero num) throws RemoteException;
 
