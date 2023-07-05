@@ -6,6 +6,7 @@ public class NumeroImpl implements Numero {
         num = val;
     }
 
+    @Override
     public double getValor() {
         return num;
     }
