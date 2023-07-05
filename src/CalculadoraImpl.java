@@ -1,5 +1,3 @@
-
-// CÓDIGO CALCULADORA IMPL
 import java.rmi.RemoteException;
 
 public class CalculadoraImpl implements Calculadora {
@@ -97,8 +95,7 @@ public class CalculadoraImpl implements Calculadora {
     @Override
     public Numero calcularLogaritmoBase10(Numero num) throws RemoteException {
         System.out.println("Logaritmo na base 10!");
-        return // double cotangente = 1 / Math.tan(angulo.getValor());
-        new NumeroImpl(Math.log10(num.getValor()));
+        return new NumeroImpl(Math.log10(num.getValor()));
     }
 
     @Override
@@ -202,6 +199,30 @@ public class CalculadoraImpl implements Calculadora {
             throws RemoteException {
         System.out.println("Fahrenheit p/ Celsius!");
         return new NumeroImpl((valor.getValor() - 32) * 5 / 9);
+    }
+
+    @Override
+    public Numero quilometrosParaMilhas(Numero quilometros) throws RemoteException {
+        System.out.println("Converter quilômetros para milhas!");
+        return new NumeroImpl(quilometros.getValor() * 0.621371);
+    }
+
+    @Override
+    public Numero milhasParaQuilometros(Numero milhas) throws RemoteException {
+        System.out.println("Converter milhas para quilômetros!");
+        return new NumeroImpl(milhas.getValor() * 1.60934);
+    }
+
+    @Override
+    public Numero quilogramasParaLibras(Numero quilogramas) throws RemoteException {
+        System.out.println("Converter quilogramas para libras!");
+        return new NumeroImpl(quilogramas.getValor() * 2.20462);
+    }
+
+    @Override
+    public Numero librasParaQuilogramas(Numero libras) throws RemoteException {
+        System.out.println("Converter libras para quilogramas!");
+        return new NumeroImpl(libras.getValor() * 0.453592);
     }
 
 }
