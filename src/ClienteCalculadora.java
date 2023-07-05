@@ -99,7 +99,6 @@ public class ClienteCalculadora {
     calcularRaizCubicaButton.addActionListener(new ButtonClickListener("calcularRaizCubica"));
     buttonPanel.add(calcularRaizCubicaButton);
 
-
     JButton sineButton = new JButton("sin");
     sineButton.addActionListener(new ButtonClickListener("seno"));
     buttonPanel.add(sineButton);
