@@ -255,15 +255,6 @@ public class ClienteCalculadora {
           case "valorAbsoluto":
             result = calc.calcularValorAbsoluto(num1);
             break;
-          case "converterMoeda":
-            result = calc.dolarParaReal(num1);
-            break;
-          case "converterTempo":
-            result = calc.converterTempo(num1, "minutos", "segundos");
-            break;
-          case "converterTemperatura":
-            result = calc.converterTemperatura(num1, "Celsius", "Fahrenheit");
-            break;
           case "calcularFatorial":
             result = calc.calcularFatorial(num1);
             break;
@@ -301,16 +292,16 @@ public class ClienteCalculadora {
             result = calc.dolarParaReal(num1);
             break;
           case "segParaMinuto":
-            result = calc.converterTempo(num1, "segundos", "minutos");
+            result = calc.segParaMinuto(num1);
             break;
           case "minutoParaSeg":
-            result = calc.converterTempo(num1, "minutos", "segundos");
+            result = calc.minutoParaSeg(num1);
             break;
           case "celsiusParaFahrenheit":
-            result = calc.converterTemperatura(num1, "Celsius", "Fahrenheit");
+            result = calc.celsiusParaFahrenheit(num1);
             break;
           case "fahrenheitParaCelsius":
-            result = calc.converterTemperatura(num1, "Fahrenheit", "Celsius");
+            result = calc.fahreinheitParaCelsius(num1);
             break;
         }
 
